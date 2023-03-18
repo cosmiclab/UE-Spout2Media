@@ -16,15 +16,15 @@ bool USpout2MediaOutput::Validate(FString& OutFailureReason) const
 
 FIntPoint USpout2MediaOutput::GetRequestedSize() const
 {
-	FIntPoint Result = FIntPoint(1920, 1080);
-	return Result;
+	//FIntPoint Result = FIntPoint(1920, 1080);
+	return Resolution;
 }
 
 EPixelFormat USpout2MediaOutput::GetRequestedPixelFormat() const
 {
-	EPixelFormat Result = PF_A2B10G10R10;
+	//EPixelFormat Result = PF_A2B10G10R10;
 	// Result = PF_FloatRGBA;
-	return Result;
+	return Format;
 }
 
 EMediaCaptureConversionOperation USpout2MediaOutput::GetConversionOperation(EMediaCaptureSourceType InSourceType) const
