@@ -1,0 +1,8 @@
+{
+	"BuildId": "23058290",
+	"Modules": 
+	{
+		"Spout2Media": "UnrealEditor-Spout2Media.dll",
+		"Spout2MediaEditor": "UnrealEditor-Spout2MediaEditor.dll"
+	}
+}
