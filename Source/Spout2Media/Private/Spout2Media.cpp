@@ -6,6 +6,7 @@
 #include "Interfaces/IPluginManager.h"
 
 #include "Spout2MediaPlayer.h"
+#include "Spout2MediaCapture.h"
 
 #define LOCTEXT_NAMESPACE "FSpout2MediaModule"
 
@@ -23,6 +24,7 @@ void FSpout2MediaModule::StartupModule()
 
 void FSpout2MediaModule::ShutdownModule()
 {
+	Spout2Media_ShutdownD3D12Interop();
 }
 
 bool FSpout2MediaModule::CanPlayUrl(const FString& Url, const IMediaOptions*, TArray<FText>*,

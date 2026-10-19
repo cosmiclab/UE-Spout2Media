@@ -293,9 +293,9 @@ void FSpout2MediaPlayer::FlushSamples()
 
 IMediaSamples::EFetchBestSampleResult FSpout2MediaPlayer::FetchBestVideoSampleForTimeRange(
 	const TRange<FMediaTimeStamp>& TimeRange, TSharedPtr<IMediaTextureSample, ESPMode::ThreadSafe>& OutSample,
-	bool bReverse)
+	bool bReverse, bool bConsistentResult)
 {
-	return IMediaSamples::FetchBestVideoSampleForTimeRange(TimeRange, OutSample, bReverse);
+	return IMediaSamples::FetchBestVideoSampleForTimeRange(TimeRange, OutSample, bReverse, bConsistentResult);
 }
 
 bool FSpout2MediaPlayer::PeekVideoSampleTime(FMediaTimeStamp& TimeStamp)

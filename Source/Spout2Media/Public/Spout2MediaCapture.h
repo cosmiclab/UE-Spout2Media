@@ -8,16 +8,21 @@
 
 #include "Spout2MediaCapture.generated.h"
 
+/** Releases the D3D12 interop queue and fences shared by all Spout senders. Called from the module shutdown. */
+void Spout2Media_ShutdownD3D12Interop();
+
 UCLASS(BlueprintType)
 class SPOUT2MEDIA_API USpout2MediaCapture
 	: public UMediaCapture
 {
-	GENERATED_UCLASS_BODY()
+	GENERATED_BODY()
 
 	struct FSpoutSenderContext;
 	TSharedPtr<FSpoutSenderContext> Context;
 
 public:
+	USpout2MediaCapture();
+
 	virtual bool HasFinishedProcessing() const override;
 	
 protected:
@@ -31,7 +36,7 @@ protected:
 	virtual void StopCaptureImpl(bool bAllowPendingFrameToBeProcess) override;
 
 	virtual bool ShouldCaptureRHIResource() const override { return true; }
-	virtual void OnRHIResourceCaptured_RenderingThread(const FCaptureBaseData& InBaseData, TSharedPtr<FMediaCaptureUserData, ESPMode::ThreadSafe> InUserData, FTextureRHIRef InTexture) override;
+	virtual void OnRHIResourceCaptured_RenderingThread(FRHICommandListImmediate& RHICmdList, const FCaptureBaseData& InBaseData, TSharedPtr<FMediaCaptureUserData, ESPMode::ThreadSafe> InUserData, FTextureRHIRef InTexture) override;
 
 private:
 

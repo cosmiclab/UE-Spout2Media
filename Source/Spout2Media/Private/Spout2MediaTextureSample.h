@@ -7,6 +7,7 @@
 #include "MediaObjectPool.h"
 #include "RHI.h"
 #include "RHIUtilities.h"
+#include "RHICommandList.h"
 
 #include "Windows/AllowWindowsPlatformTypes.h" 
 #include <d3d11on12.h>
@@ -19,7 +20,7 @@ class SPOUT2MEDIA_API FSpout2MediaTextureSample
 	: public IMediaTextureSample
 	, public IMediaPoolable
 {
-	FTexture2DRHIRef Texture;
+	FTextureRHIRef Texture;
 
 	FString RHIName;
 	ID3D11Resource* WrappedDX11Resource = nullptr;
